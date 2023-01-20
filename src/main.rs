@@ -1,6 +1,6 @@
 use std::{env, process};
 
-use poke_man::{Arg, match_cmd};
+use poke_man::{match_cmd, commands::command::Arg};
 
 fn main() {
     let args: Vec<String> = env::args().collect();
