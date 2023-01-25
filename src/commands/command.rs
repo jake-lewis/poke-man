@@ -1,8 +1,3 @@
-pub struct Arg {
-    pub name: String,
-    pub option: Option<Box<dyn Command>>,
-}
-
 pub trait Command {
     fn execute(&self);
     fn name(&self) -> &str;
