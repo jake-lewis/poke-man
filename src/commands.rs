@@ -1,4 +1,4 @@
 pub mod command;
 pub mod version;
 pub mod help;
-pub mod game;
+pub mod generation;
