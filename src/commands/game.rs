@@ -1,5 +1,3 @@
-use std::option;
-
 use super::command::Command;
 
 pub struct Game {

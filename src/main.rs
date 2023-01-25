@@ -1,10 +1,6 @@
 use std::{env, process};
 
-use poke_man::commands::{
-    command::Command, 
-    help::Help,
-    version::Version, game::Game
-};
+use poke_man::{commands::command::Command, build_command};
 
 fn main() {
     // Get input from cmd line
@@ -42,24 +38,5 @@ fn parse_args(args: &[String]) -> Result<Box<dyn Command>, String> {
             }
         },
         Err(e) => Err(e)
-    }
-}
-
-fn build_command(name: &str, option: Option<Box<dyn Command>>) -> Result<Box<dyn Command>, String> {
-    match name {
-        "help" => {
-            let commands: Vec<Box<dyn Command>> = vec![
-                Box::new(Version::new()),
-                Box::new(Game::new(None))
-            ];
-            return Ok(Box::new(Help::new(commands, option)));
-        },
-        "version" => {
-            return Ok(Box::new(Version::new()));
-        },
-        "game" => {
-            return Ok(Box::new(Game::new(option)));
-        }
-        _ => Err(format!("Command '{}' not found, see 'pokeman help' for list of commands", name))
     }
 }
